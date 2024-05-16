@@ -1,7 +1,9 @@
 import 'mocha';
 import { expect } from 'chai';
 import { agent as request } from 'supertest';
-import { getRepository, Connection, Repository } from 'typeorm';
+import { DataSource, Repository } from 'typeorm';
+import { dataSource } from '../../orm/dbCreateConnection';
+
 
 import { dbCreateConnection } from 'orm/dbCreateConnection';
 import { Role } from 'orm/entities/users/types';
@@ -10,7 +12,7 @@ import { User } from 'orm/entities/users/User';
 import { app } from '../../';
 
 describe('Login', () => {
-  let dbConnection: Connection;
+  let dbConnection: DataSource;
   let userRepository: Repository<User>;
 
   const userPassword = 'pass1';
@@ -24,7 +26,7 @@ describe('Login', () => {
 
   before(async () => {
     dbConnection = await dbCreateConnection();
-    userRepository = getRepository(User);
+    userRepository = dataSource.getRepository(User);
   });
 
   beforeEach(async () => {

@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  pg_mania:
+    container_name: 'pg_mania'
+    build: .
+    restart: always
+    volumes:
+      - .:/app/
+      - /app/node_modules

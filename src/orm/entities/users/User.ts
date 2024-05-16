@@ -1,6 +1,7 @@
 import bcrypt from 'bcryptjs';
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany } from 'typeorm';
-import { Parcel } from './Parcel';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany,  } from 'typeorm';
+import { Exclude } from 'class-transformer';
+import { Parcel } from '../parcels/Parcel';
 
 import { Role, Language } from './types';
 
@@ -15,6 +16,7 @@ export class User {
   email: string;
 
   @Column()
+  @Exclude()
   password: string;
 
   @Column({

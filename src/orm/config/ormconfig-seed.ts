@@ -12,9 +12,9 @@ const configSeed: DataSourceOptions = {
   logging: false,
   entities: ['src/orm/entities/**/*.ts'],
   migrations: ['src/orm/seeds/**/*.ts'],
-  cli: {
-    migrationsDir: 'src/orm/seeds',
-  },
+  // cli: {
+  //   migrationsDir: 'src/orm/seeds',
+  // },
   namingStrategy: new SnakeNamingStrategy(),
 };
 

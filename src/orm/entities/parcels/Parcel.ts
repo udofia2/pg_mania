@@ -1,8 +1,8 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne } from 'typeorm';
-import { User } from './User';
+import { User } from '../users/User';
 import { ParcelStatus } from '../../../consts/ConstsPercel';
 
-@Entity('parcel')
+@Entity('parcels')
 export class Parcel {
   @PrimaryGeneratedColumn()
   id: number;
